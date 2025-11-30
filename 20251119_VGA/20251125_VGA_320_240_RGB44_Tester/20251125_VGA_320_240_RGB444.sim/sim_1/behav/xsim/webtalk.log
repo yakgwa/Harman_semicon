@@ -1,0 +1,13 @@
+#-----------------------------------------------------------
+# Webtalk v2020.2 (64-bit)
+# SW Build 3064766 on Wed Nov 18 09:12:45 MST 2020
+# IP Build 3064653 on Wed Nov 18 14:17:31 MST 2020
+# Start of session at: Tue Nov 25 18:51:37 2025
+# Process ID: 9900
+# Current directory: C:/Users/kccistc/Desktop/Seanson_2/20251125_VGA_320_240_RGB444/20251125_VGA_320_240_RGB444.sim/sim_1/behav/xsim
+# Command line: wbtcv.exe -mode batch -source C:/Users/kccistc/Desktop/Seanson_2/20251125_VGA_320_240_RGB444/20251125_VGA_320_240_RGB444.sim/sim_1/behav/xsim/xsim.dir/tb_bmp_filter_behav/webtalk/xsim_webtalk.tcl -notrace
+# Log file: C:/Users/kccistc/Desktop/Seanson_2/20251125_VGA_320_240_RGB444/20251125_VGA_320_240_RGB444.sim/sim_1/behav/xsim/webtalk.log
+# Journal file: C:/Users/kccistc/Desktop/Seanson_2/20251125_VGA_320_240_RGB444/20251125_VGA_320_240_RGB444.sim/sim_1/behav/xsim\webtalk.jou
+#-----------------------------------------------------------
+source C:/Users/kccistc/Desktop/Seanson_2/20251125_VGA_320_240_RGB444/20251125_VGA_320_240_RGB444.sim/sim_1/behav/xsim/xsim.dir/tb_bmp_filter_behav/webtalk/xsim_webtalk.tcl -notrace
+INFO: [Common 17-206] Exiting Webtalk at Tue Nov 25 18:51:37 2025...
