@@ -1,0 +1,13 @@
+Vivado Simulator 2020.2
+Time resolution is 1 ps
+[suzy_640x480x4.bmp] file is opened!
+[suzy_640x480x4.bmp] bmpHeader is read! Header size : 54
+[suzy_640x480x4.bmp] bmpHeaer is read! Img data size : 230400
+[suzy_640x480x4.bmp] file is closed!
+[suzy_640x480x4.bmp] file is opened!
+[target.bmp] file is opened!
+[suzy_640x480x4.bmp] bmpHeader is read! Header size : 54
+[suzy_640x480x4.bmp] bmpHeaer is read! Img data size : 230400
+[suzy_640x480x4.bmp] file is closed!
+[target.bmp] file is closed!
+$finish called at time : 3936005 ns : File "C:/Users/kccistc/Desktop/Seanson_2/20251125_VGA_320_240_RGB444/20251125_VGA_320_240_RGB444.srcs/sim_1/imports/new/tb_BMP_IMG.sv" Line 136
