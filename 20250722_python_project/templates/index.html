@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>감정 분석기</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+  <div class="container">
+    <h1>🎵 오늘의 음악을 추천해드려요 🎵</h1>
+
+    <button id="fetch-song-btn">플레이리스트</button>
+    <button id="start-btn">지금 당신의 기분은?</button>
+    <input type="text" id="manual-emotion-input" placeholder="감정을 입력하세요 (예: HAPPY)" style="padding: 8px; font-size:16px; width: 60%; margin-top: 20px; display: block; margin-left: auto; margin-right: auto;" />
+    <button id="manual-emotion-btn" style="padding: 12px 24px; font-size: 16px; margin-top: 10px; display: block; margin-left: auto; margin-right: auto;">직접 기분을 적어보세요</button>
+
+
+    <video id="video" autoplay muted playsinline></video>
+
+    <p id="emotion-result"></p>
+  </div>
+
+  <script src="{{ url_for('static', filename='js/script.js') }}"></script>
+</body>
+</html>

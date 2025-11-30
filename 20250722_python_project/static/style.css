@@ -1,0 +1,66 @@
+body {
+    font-family: 'Arial', sans-serif;
+    background-image: url("musicman.png"); /* static 폴더 안에 이미지 위치 */
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    margin: 0;
+    padding: 0;
+}
+
+.container {
+    background-color: rgba(255, 255, 255, 0.92);
+    padding: 30px;
+    border-radius: 12px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    max-width: 600px;
+    margin: 60px auto;
+    text-align: center;
+}
+
+h1 {
+    font-size: 28px;
+    margin-bottom: 20px;
+}
+
+button {
+    padding: 12px 24px;
+    font-size: 16px;
+    margin: 10px;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    background-color: #4CAF50;
+    color: white;
+    transition: background-color 0.3s;
+}
+
+button:hover {
+    background-color: #45a049;
+}
+
+#fetch-song-btn {
+    background-color: #2196F3;
+}
+
+#fetch-song-btn:hover {
+    background-color: #1976D2;
+}
+
+#video {
+    width: 200px;
+    max-width: 100%;
+    height: auto;
+    margin: 15px auto 0 auto;
+    display: none;
+    border: 3px solid #ccc;
+    border-radius: 10px;
+    object-fit: cover;
+}
+
+#emotion-result {
+    margin-top: 20px;
+    font-size: 18px;
+    font-weight: bold;
+}
