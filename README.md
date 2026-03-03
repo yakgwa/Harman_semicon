@@ -2,7 +2,7 @@
 
 <div align="center">
 
-<img src="https://in.mitsubishielectric.com/en/feature/partneringindia/insights/semiconductors-in-integrated-circuits.html" width="400"/>
+<img src="https://pegglass.com/wp-content/uploads/2020/07/semiconductor-1-1024.png" width="400"/> 
 
 [<img src="https://img.shields.io/badge/-readme.md-important?style=flat&logo=google-chrome&logoColor=white" />]() [<img src="https://img.shields.io/badge/release-v1.0.0-ㅎㄱㄷ두?style=flat&logo=google-chrome&logoColor=white" />]() 
 <br/> [<img src="https://img.shields.io/badge/프로젝트 기간-2025.07.01~2026.01.26-fab2ac?style=flat&logo=&logoColor=white" />]()
