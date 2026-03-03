@@ -1,0 +1,7 @@
+*.bit filter=lfs diff=lfs merge=lfs -text
+*.bin filter=lfs diff=lfs merge=lfs -text
+*.pt filter=lfs diff=lfs merge=lfs -text
+<<<<<<< HEAD
+=======
+20260120_VGA_Final_Ver/최종[[:space:]]프로젝트[[:space:]]1팀_발표용.pptx filter=lfs diff=lfs merge=lfs -text
+>>>>>>> 444f2b5 (Add Project)
