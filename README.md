@@ -1,5 +1,7 @@
 ## Harman Semiconductor Academy
 
+<br>
+
 <div align="center">
 
 <img src="https://pegglass.com/wp-content/uploads/2020/07/semiconductor-1-1024.png" width="400"/> 
