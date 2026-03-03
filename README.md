@@ -10,10 +10,9 @@
 
 </div> 
 
-<br>
+## 📝 프로젝트 수행 경험
+Logic Based Verilog, VHDL, C, SystemVerilog, UVM
 
-- 사용 언어 : Verilog, VHDL, C, SystemVerilog, UVM
-- 프로젝트 수행 경험
   - Python을 사용한 감정 인식 기반 맞춤형 음악 추천 시스템 
     - 역할 : 데이터 수집, 전처리 
     - 결과 : MediaPipe라는 AI Cloud Service를 통해 카메라로 감정을 분석하고 웹데이터를 크롤링하여 추천 리스트를 실시간으로 업데이트하는 알고리즘 구현
@@ -33,7 +32,7 @@
     - 역할 : VGA System Design, VGA Debugging, UI 제작
     - 결과 : Camera 상으로 Red 객체가 들어왔을 때 좌표 떨림 밑 박스가 쪼개지는 현상없이 SPI를 통해 객체의 중심 좌표가 제대로 출력 및 HDMI를 통한 출력 확인
 
-- 프로젝트 언어 사용 경험
+## 📝 프로젝트 언어 사용 경험
   - C : STM32 기반의 Firmware Software 설계
   - Python : 감정 인식 기반 맞춤형 음악 추천 시스템 설계
   - Verilog : FND Controller, UART, StopWatch, SR04, DHT11 설계
