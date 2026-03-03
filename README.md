@@ -1,13 +1,10 @@
 ## Harman Semiconductor Academy
 
-- 사용 언어 / 기술**: Verilog, VHDL, C/C++
+- 사용 언어 / 기술**: Verilog, VHDL, C, SystemVerilog, UVM
 - 프로젝트 수행 경험
-  - C언어를 사용한 나만의 ATM기 
-    - 역할 : C언어 기반 처리 알고리즘 및 보안 요소 구현
-    - 결과 : 지폐의 길이를 통한 입력 처리 및 비밀번호 입력 시 Arduino Board에서 처리하는 알고리즘 구현
-  - Python을 사용한 AI 음악가 
-    - 역할 : 데이터 수집, 전처리 및 모델 설계
-    - 결과 : MIDI 형식의 음악 Dataset 수집하고 이를 모델 입력 형식으로 변환하여 데이터 패턴을 고려한 입출력 시퀀스 및 시퀀스 모델 구성
+  - Python을 사용한 감정 인식 기반 맞춤형 음악 추천 시스템 
+    - 역할 : 데이터 수집, 전처리 
+    - 결과 : MediaPipe라는 AI Cloud Service를 통해 카메라로 감정을 분석하고 웹데이터를 크롤링하여 추천 리스트를 실시간으로 업데이트하는 알고리즘 구현
   - Verilog를 사용한 UART Logic Controller
     - 역할 : DHT11(온습도계) Driver 설계 및 Simulation
     - 결과 : Button Debouncer를 이용한 Button, ComportMaster를 이용한 UART 통신으로 온습도 Data FND로 출력 및 Simulation으로 동작 확인
@@ -25,7 +22,7 @@
     - 결과 : Camera 상으로 Red 객체가 들어왔을 때 좌표 떨림 밑 박스가 쪼개지는 현상없이 SPI를 통해 객체의 중심 좌표가 제대로 출력 및 HDMI를 통한 출력 확인
 
 - 프로젝트 언어 사용 경험
-  - C : 회피하는 RC카 시스템 설계
+  - C : STM32 기반의 Firmware Software 설계
   - Python : 감정 인식 기반 맞춤형 음악 추천 시스템 설계
   - Verilog : FND Controller, UART, StopWatch, SR04, DHT11 설계
   - Systemverilog : UART, RISCV SingleCycle, RISCV MultiCycle, APB, AXI, SPI, I2C, VGA Controller 설계
