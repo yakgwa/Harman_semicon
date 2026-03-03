@@ -11,7 +11,7 @@
 </div> 
 
 ## 📝 프로젝트 수행 경험
-Logic Based Verilog, VHDL, C, SystemVerilog, UVM
+Logic Based Verilog, SystemVerilog, C, Python, UVM
 
   - Python을 사용한 감정 인식 기반 맞춤형 음악 추천 시스템 
     - 역할 : 데이터 수집, 전처리 
