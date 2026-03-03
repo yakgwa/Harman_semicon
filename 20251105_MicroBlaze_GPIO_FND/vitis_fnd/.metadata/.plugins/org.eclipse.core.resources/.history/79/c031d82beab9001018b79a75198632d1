@@ -1,0 +1,39 @@
+/*
+ * ap.c
+ *
+ *  Created on: 2025. 11. 4.
+ *      Author: kccistc
+ */
+
+#include "ap.h"
+#include "sleep.h"
+
+hLed powerLed;
+hLed upLed;
+hLed downLed;
+
+void ap_main() {
+	LED_Init(&powerLed, LED_GPIO, LED_0);
+	LED_Init(&upLed, LED_GPIO, LED_1);
+	LED_Init(&downLed, LED_GPIO, LED_2);
+
+	FND_Init();
+
+	int counter = 0;
+
+	while (1) {
+		FND_DispNumber(counter++); // usleep에서 10000 줌
+		counter++;
+		ISR();
+
+	}
+}
+
+void ISR() { // Interrupt Service Routine
+	millisCounter();
+}
+
+void millisCounter() {
+	usleep(1000);
+	incMillis();
+}

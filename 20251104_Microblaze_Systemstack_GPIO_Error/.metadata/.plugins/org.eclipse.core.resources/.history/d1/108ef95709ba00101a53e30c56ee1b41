@@ -1,0 +1,27 @@
+/*
+ * btn.h
+ *
+ *  Created on: 2025. 11. 4.
+ *      Author: kccistc
+ */
+
+#ifndef SRC_DRIVER_BTN_BTN_H_
+#define SRC_DRIVER_BTN_BTN_H_
+
+//#include "../../device/gpio/gpio.h"
+#include <stdint.h>
+
+enum {RELEASED = 0, PUSHED};
+enum {ACT_PUSHED = 0, ACT_RELEASED, NO_ACT};
+
+typedef struct{
+	GPIO_TypeDef *gpio;
+	int pinNum;
+	int prevState;
+}hButton;
+
+void Button_Init(hButton *btn, GPIO_TypeDef *gpio, uint8_t pinNum);
+
+void Button_getState(hButton *btn);
+
+#endif /* SRC_DRIVER_BTN_BTN_H_ */

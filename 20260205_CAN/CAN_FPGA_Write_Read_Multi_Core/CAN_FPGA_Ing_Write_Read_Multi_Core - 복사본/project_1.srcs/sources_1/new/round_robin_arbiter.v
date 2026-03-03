@@ -1,0 +1,78 @@
+module round_robin_arbiter(
+input clk,
+input rst_n,
+input [3:0] REQ,
+output reg [3:0] GNT
+);
+
+reg [2:0] present_state;
+reg [2:0] next_state;
+
+parameter [2:0] s_ideal = 3'b000;
+parameter [2:0] s_0 = 3'b001;
+parameter [2:0] s_1 = 3'b010;
+parameter [2:0] s_2 = 3'b011;
+parameter [2:0] s_3 = 3'b100;
+
+always @ (posedge clk or negedge rst_n) begin
+    if (!rst_n) begin
+        present_state <= s_ideal;
+    end
+    else begin
+        present_state <= next_state;
+    end
+end
+
+always @ (*) begin
+    case (present_state)
+        s_ideal: begin
+            if      (REQ[0]) next_state = s_0;
+            else if (REQ[1]) next_state = s_1;
+            else if (REQ[2]) next_state = s_2;
+            else if (REQ[3]) next_state = s_3;
+            else             next_state = s_ideal;
+        end
+        s_0: begin
+            // 0번이 요청을 유지(1)하는 동안에는 무조건 s_0 유지!
+            if      (REQ[0]) next_state = s_0; 
+            else if (REQ[1]) next_state = s_1;
+            else if (REQ[2]) next_state = s_2;
+            else if (REQ[3]) next_state = s_3;
+            else             next_state = s_ideal;
+        end
+        s_1: begin
+            if      (REQ[1]) next_state = s_1; // 1번 유지
+            else if (REQ[2]) next_state = s_2;
+            else if (REQ[3]) next_state = s_3;
+            else if (REQ[0]) next_state = s_0;
+            else             next_state = s_ideal;
+        end
+        s_2: begin
+            if      (REQ[2]) next_state = s_2; // 2번 유지
+            else if (REQ[3]) next_state = s_3;
+            else if (REQ[0]) next_state = s_0;
+            else if (REQ[1]) next_state = s_1;
+            else             next_state = s_ideal;
+        end
+        s_3: begin
+            if      (REQ[3]) next_state = s_3; // 3번 유지
+            else if (REQ[0]) next_state = s_0;
+            else if (REQ[1]) next_state = s_1;
+            else if (REQ[2]) next_state = s_2;
+            else             next_state = s_ideal;
+        end
+        default: next_state = s_ideal;
+    endcase
+end
+
+always @ (*) begin
+    case (present_state)
+        s_0: GNT = 4'b0001;
+	s_1: GNT = 4'b0010;
+	s_2: GNT = 4'b0100;
+	s_3: GNT = 4'b1000;
+	default: GNT = 4'b0000;
+    endcase
+end
+	
+endmodule

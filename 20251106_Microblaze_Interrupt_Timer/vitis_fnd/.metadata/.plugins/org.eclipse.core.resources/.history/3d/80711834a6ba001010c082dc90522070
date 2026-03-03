@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="ASCII"?>
+<sdkproject:SdkProject xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:sdkproject="http://www.xilinx.com/sdkproject" name="fnd_counter" location="C:/Users/kccistc/NEW_HARMAN_Work/20251104_MicroBlaze_GPIO_FND/vitis_fnd/fnd_counter" platform="C:/Users/kccistc/NEW_HARMAN_Work/20251104_MicroBlaze_GPIO_FND/vitis_fnd/microblaze_wrapper/export/microblaze_wrapper/microblaze_wrapper.xpfm" platformUID="xilinx:basys3::0.0(custom)" systemProject="fnd_counter_system" sysConfig="microblaze_wrapper" runtime="cpp" cpu="standalone_microblaze_0" cpuInstance="microblaze_0" os="standalone" mssSignature="c81de6b8c20641566add7747d9cb0e81">
+  <configuration name="Debug" id="xilinx.gnu.mb.exe.debug.995498381">
+    <configBuildOptions xsi:type="sdkproject:SdkOptions"/>
+    <lastBuildOptions xsi:type="sdkproject:SdkOptions"/>
+  </configuration>
+  <configuration name="Release" id="xilinx.gnu.mb.exe.release.851585569" dirty="true">
+    <configBuildOptions xsi:type="sdkproject:SdkOptions"/>
+  </configuration>
+  <template appTemplateName="empty_application"/>
+</sdkproject:SdkProject>

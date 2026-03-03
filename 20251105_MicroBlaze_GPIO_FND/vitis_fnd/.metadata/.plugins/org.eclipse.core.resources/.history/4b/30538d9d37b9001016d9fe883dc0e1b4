@@ -1,0 +1,19 @@
+/*
+ * gpio.h
+ *
+ *  Created on: 2025. 11. 4.
+ *      Author: kccistc
+ */
+
+#ifndef SRC_DEVICE_GPIO_GPIO_H_
+#define SRC_DEVICE_GPIO_GPIO_H_
+#include "xparameters.h"
+
+typedef struct {
+	volatile uint32_t CR;
+	volatile uint32_t ODR;
+	volatile uint32_t IDR;
+} GPIO_TypeDef;
+
+#endif /* SRC_DEVICE_GPIO_GPIO_H_ */
+

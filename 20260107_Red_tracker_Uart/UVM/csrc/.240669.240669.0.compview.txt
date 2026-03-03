@@ -1,0 +1,7 @@
+Command exited with non-zero status 255
+{"vcs1":{"timestamp_begin":1768979635.386347153, "rt":1.29, "ut":0.98, "st":0.08}}
+{"SNPS_VCS_INTERNAL_ROOT_START_TIME": 1768979634.976697404}
+{"VCS_COMP_START_TIME": 1768979634.976697404}
+{"VCS_COMP_END_TIME": 1768979636.715900247}
+{"VCS_USER_OPTIONS": "-full64 -sverilog -ntb_opts uvm -kdb -debug_access+all -timescale=1ns/1ps rtl/ImgMemReader.sv rtl/OV7670_CCTV.sv rtl/OV7670_CCTV_TOP.sv rtl/OV7670_Mem_Controller.sv rtl/SCCB_Master.sv rtl/VGA_Decoder.sv rtl/frame_buffer.sv rtl/frame_splitter.sv rtl/pclk_gen.sv rtl/sccbRom.sv rtl/uart_top.sv rtl/fifo.v rtl/uart_rx.v rtl/uart_tx.v tb/tb_OV7670_cctv.sv"}
+{"vcs1": {"peak_mem": 497168}}

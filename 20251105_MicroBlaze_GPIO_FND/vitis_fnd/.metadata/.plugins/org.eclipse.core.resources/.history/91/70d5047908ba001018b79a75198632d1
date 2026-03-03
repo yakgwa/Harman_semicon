@@ -1,0 +1,23 @@
+/*
+ * button.h
+ *
+ *  Created on: 2025. 11. 5.
+ *      Author: kccistc
+ */
+
+#ifndef SRC_DRIVER_BTN_BUTTON_H_
+#define SRC_DRIVER_BTN_BUTTON_H_
+
+enum{RELEASED = 0, PUSHED};
+enum{ACT_PUSHED = 0, ACT_RELEASED, NO_ACT};
+
+typedef struct {
+	GPIO_TypeDef *gpio;
+	int pinNum;
+	int prevState;
+} hButton;
+
+void BTN_Init();
+int Button_getState(hButton *btn);
+
+#endif /* SRC_DRIVER_BTN_BUTTON_H_ */

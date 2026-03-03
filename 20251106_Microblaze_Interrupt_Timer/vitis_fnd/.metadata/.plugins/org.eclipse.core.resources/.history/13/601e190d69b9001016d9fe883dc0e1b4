@@ -1,0 +1,102 @@
+/*
+ * ap.c
+ *
+ *  Created on: 2025. 11. 4.
+ *      Author: kccistc
+ */
+
+#include "ap.h"
+#include "sleep.h"
+
+hLed powerLed;
+hLed upLed;
+hLed downLed;
+void loop(int n, int counter);
+
+
+void ap_main() {
+	LED_Init(&powerLed, LED_GPIO, LED_0);
+	LED_Init(&upLed, LED_GPIO, LED_1);
+	LED_Init(&downLed, LED_GPIO, LED_2);
+
+	FND_Init();
+
+	int counter = 0;
+
+	while (1) {
+		//FND_DispNumber(counter++); // usleep에서 10000 줌
+
+
+
+		LED_On(&powerLed);
+		loop(10,counter);
+		counter++;
+		loop(6,counter);
+
+
+		LED_Off(&powerLed);
+		loop(4,counter);
+		counter++;
+		loop(10,counter);
+		counter++;
+		loop(2,counter);
+
+
+		LED_On(&upLed);
+		loop(8,counter);
+		counter++;
+		loop(8,counter);
+
+		LED_Off(&upLed);
+		loop(2,counter);
+		counter++;
+		loop(10,counter);
+		counter++;
+		loop(4,counter);
+
+
+		LED_On(&downLed);
+		loop(6,counter);
+		counter++;
+		loop(10,counter);
+		counter++;
+
+
+
+		LED_Off(&downLed);
+		loop(10,counter);
+		counter++;
+		loop(10,counter);
+		counter++;
+
+
+
+
+
+//		counter++;
+
+		/*
+		 LED_On(&powerLed);
+		 usleep(100000);
+		 LED_On(&upLed);
+		 usleep(100000);
+		 LED_On(&downLed);
+		 usleep(100000);
+
+		 LED_Off(&powerLed);
+		 usleep(100000);
+		 LED_Off(&upLed);
+		 usleep(100000);
+		 LED_Off(&downLed);
+		 usleep(100000);
+		 */
+	}
+}
+
+void loop(int n, int counter){
+	for(int i=0; i<n;i++){ //
+		for(int j=0; j<25; j++){ // 10ms
+			FND_DispNumber(counter);
+		}
+	}
+}

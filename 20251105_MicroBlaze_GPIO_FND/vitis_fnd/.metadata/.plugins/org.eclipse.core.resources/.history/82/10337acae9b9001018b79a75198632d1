@@ -1,0 +1,114 @@
+/*
+ * ap.c
+ *
+ *  Created on: 2025. 11. 4.
+ *      Author: kccistc
+ */
+
+#include "ap.h"
+#include "sleep.h"
+
+hLed powerLed;
+hLed upLed;
+hLed downLed;
+
+void ap_main() {
+	LED_Init(&powerLed, LED_GPIO, LED_0);
+	LED_Init(&upLed, LED_GPIO, LED_1);
+	LED_Init(&downLed, LED_GPIO, LED_2);
+
+	FND_Init();
+
+	int counter = 0;
+	//int sub_counter = 0;
+
+	while (1) {
+		FND_DispNumber(counter++); // usleep에서 10000 줌
+
+		LED_On(&powerLed);
+//		loop(16, counter, sub_counter);
+		for (int i = 0; i < 16; i++) { //
+			for (int j = 0; j < 25; j++) { // 10ms
+				FND_DispNumber(counter);
+			}
+			sub_counter++;
+			if (sub_counter >= 10) {
+				sub_counter = 0;
+				counter++;
+			}
+		}
+
+		LED_Off(&powerLed);
+//		loop(16, counter, sub_counter);
+		for (int i = 0; i < 16; i++) { //
+			for (int j = 0; j < 25; j++) { // 10ms
+				FND_DispNumber(counter);
+			}
+			sub_counter++;
+			if (sub_counter >= 10) {
+				sub_counter = 0;
+				counter++;
+			}
+		}
+
+		LED_On(&upLed);
+//		loop(16, counter, sub_counter);
+		for (int i = 0; i < 16; i++) { //
+			for (int j = 0; j < 25; j++) { // 10ms
+				FND_DispNumber(counter);
+			}
+			sub_counter++;
+			if (sub_counter >= 10) {
+				sub_counter = 0;
+				counter++;
+			}
+		}
+
+		LED_Off(&upLed);
+//		loop(16, counter, sub_counter);
+		for (int i = 0; i < 16; i++) { //
+			for (int j = 0; j < 25; j++) { // 10ms
+				FND_DispNumber(counter);
+			}
+			sub_counter++;
+			if (sub_counter >= 10) {
+				sub_counter = 0;
+				counter++;
+			}
+		}
+
+		LED_On(&downLed);
+//		loop(16, counter, sub_counter);
+		for (int i = 0; i < 16; i++) { //
+			for (int j = 0; j < 25; j++) { // 10ms
+				FND_DispNumber(counter);
+			}
+			sub_counter++;
+			if (sub_counter >= 10) {
+				sub_counter = 0;
+				counter++;
+			}
+		}
+
+		LED_Off(&downLed);
+//		loop(16, counter, sub_counter);
+		for (int i = 0; i < 16; i++) { //
+			for (int j = 0; j < 25; j++) { // 10ms
+				FND_DispNumber(counter);
+			}
+			sub_counter++;
+			if (sub_counter >= 10) {
+				sub_counter = 0;
+				counter++;
+			}
+		}
+
+
+	}
+}
+
+void ISR(){
+
+
+
+}

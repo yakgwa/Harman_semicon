@@ -1,0 +1,6 @@
+../Core/driver/fnd/fnd.c:29:6:FND_ISR	1
+../Core/driver/fnd/fnd.c:34:6:FND_SetNum	1
+../Core/driver/fnd/fnd.c:39:6:FND_DispDigit	3
+../Core/driver/fnd/fnd.c:65:6:FND_Alloff	1
+../Core/driver/fnd/fnd.c:73:6:FND_DigitOn	5
+../Core/driver/fnd/fnd.c:96:6:FND_DispNum	5

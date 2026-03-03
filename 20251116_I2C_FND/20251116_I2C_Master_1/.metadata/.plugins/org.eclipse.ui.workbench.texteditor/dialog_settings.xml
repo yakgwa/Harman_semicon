@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<section name="Workbench">
+	<section name="org.eclipse.ui.texteditor.FindReplaceDialog">
+		<item key="selection" value="void write_IIC(IIC_typedef * iic, uint32_t data) {"/>
+		<list key="findhistory">
+			<item value="void write_IIC(IIC_typedef * iic, uint32_t data) {"/>
+		</list>
+	</section>
+</section>

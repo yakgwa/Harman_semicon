@@ -1,0 +1,2 @@
+../Core/ap/Controller/Controller_TempHumid.c:10:6:Controller_TempHumid_Init	4	static
+../Core/ap/Controller/Controller_TempHumid.c:14:6:Controller_TempHumid_Excute	4	static

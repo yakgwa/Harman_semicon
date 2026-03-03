@@ -1,0 +1,5 @@
+{"vcs1":{"timestamp_begin":1769674181.055312347, "rt":0.32, "ut":0.03, "st":0.02}}
+{"SNPS_VCS_INTERNAL_ROOT_START_TIME": 1769674180.717158737}
+{"VCS_COMP_START_TIME": 1769674180.717158737}
+{"VCS_COMP_END_TIME": 1769674181.405243818}
+{"VCS_USER_OPTIONS": "-full64 -sverilog -ntb_opts uvm -kdb -dubug_access+all -timescale=1ns/1ps rtl/i2c_master.v rtl/i2c_slave.v tb/tb_i2c.sv"}

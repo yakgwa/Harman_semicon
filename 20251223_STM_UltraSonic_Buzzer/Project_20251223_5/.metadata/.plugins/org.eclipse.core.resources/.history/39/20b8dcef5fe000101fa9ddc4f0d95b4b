@@ -1,0 +1,34 @@
+/*
+ * Button.c
+ *
+ *  Created on: Dec 24, 2025
+ *      Author: kccistc
+ */
+
+
+#include "Button.h"
+
+void Button_init(Button_TypeDef *hbutton, GPIO_TypeDef *GPIO, uint16_t GPIO_Pin){ //button reset
+	hbutton->GPIO = GPIO;
+	hbutton->GPIO_Pin = GPIO_Pin;
+	hbutton->prevState = RELEASED;
+}
+
+int Button_getState(Button_TypeDef *hbutton)
+{
+	//static int prevState = RELEASED;
+	int curState = HAL_GPIO_ReadPin(hbutton->GPIO, hbutton->GPIO_Pin);
+	if ((curState == PUSHED) && (hbutton->prevState != PUSHED)){
+		HAL_Delay(10); //chattering debounce code
+		hbutton->prevState = PUSHED;
+		return ACT_PUSHED;
+	}
+	else if ((curState != PUSHED) && (hbutton->prevState == PUSHED)){
+		HAL_Delay(10); //chattering debounce code
+		hbutton->prevState = RELEASED;
+		return ACT_RELEASED;
+	}
+	return NO_ACT;
+}
+[출처] STM32 StopWatch & UART|작성자 asdfqwer155
+

@@ -1,0 +1,32 @@
+timestamp=[2025-11-06 14:33:51], mode=WORKBENCH_START, duration=0:00:17.254, duration_ms=17254, data={}
+timestamp=[2025-11-06 14:33:52], mode=WORKBENCH_UI_INIT, duration=0:00:01.756, duration_ms=1756, data={editors_count=0, platform_editors_count=0, projects_count=0, platform_projects_count=0, active_platform_editor=false, projects=}
+timestamp=[2025-11-06 14:34:13], mode=PLATFORM_REPOSITORY_INIT, duration=0:00:17.528, duration_ms=17528, data={}
+timestamp=[2025-11-06 14:35:20], mode=APP_CREATION, duration=0:00:23.760, duration_ms=23760, data={name=upDownCounter, project_type=sdk, os=standalone, processor=microblaze, runtime=cpp, platform=design_1_wrapper, application_type=application}
+timestamp=[2025-11-06 14:43:49], mode=PLATFORM_GENERATION, duration=0:01:25.956, duration_ms=85956, data={name=design_1_wrapper}
+timestamp=[2025-11-06 14:44:18], mode=PLATFORM_GENERATION, duration=0:00:18.544, duration_ms=18544, data={name=design_1_wrapper}
+timestamp=[2025-11-06 14:44:43], mode=BUILD, duration=0:00:25.160, duration_ms=25160, data={name=upDownCounter, configuration=Debug, clean_build=false}
+timestamp=[2025-11-06 15:43:25], mode=BUILD, duration=0:00:04.635, duration_ms=4635, data={name=upDownCounter, configuration=Debug, clean_build=false}
+timestamp=[2025-11-06 15:44:52], mode=BUILD, duration=0:00:19.984, duration_ms=19984, data={name=upDownCounter, configuration=Debug, clean_build=false}
+timestamp=[2025-11-06 15:59:07], mode=BUILD, duration=0:00:04.062, duration_ms=4062, data={name=upDownCounter, configuration=Debug, clean_build=false}
+timestamp=[2025-11-06 15:59:17], mode=BUILD, duration=0:00:03.222, duration_ms=3222, data={name=upDownCounter, configuration=Debug, clean_build=false}
+timestamp=[2025-11-06 16:00:11], mode=BUILD, duration=0:00:01.387, duration_ms=1387, data={name=upDownCounter, configuration=Debug, clean_build=false}
+timestamp=[2025-11-06 16:00:24], mode=BUILD, duration=0:00:01.734, duration_ms=1734, data={name=upDownCounter, configuration=Debug, clean_build=false}
+timestamp=[2025-11-06 16:02:09], mode=BUILD, duration=0:00:02.042, duration_ms=2042, data={name=upDownCounter, configuration=Debug, clean_build=false}
+timestamp=[2025-11-06 16:02:34], mode=BUILD, duration=0:00:01.436, duration_ms=1436, data={name=upDownCounter, configuration=Debug, clean_build=false}
+timestamp=[2025-11-06 16:03:13], mode=BUILD, duration=0:00:02.508, duration_ms=2508, data={name=upDownCounter, configuration=Debug, clean_build=false}
+timestamp=[2025-11-06 16:13:47], mode=BUILD, duration=0:00:01.475, duration_ms=1475, data={name=upDownCounter, configuration=Debug, clean_build=false}
+timestamp=[2025-11-06 16:14:00], mode=BUILD, duration=0:00:01.406, duration_ms=1406, data={name=upDownCounter, configuration=Debug, clean_build=false}
+timestamp=[2025-11-06 16:14:10], mode=BUILD, duration=0:00:02.776, duration_ms=2776, data={name=upDownCounter, configuration=Debug, clean_build=false}
+timestamp=[2025-11-06 16:21:54], mode=BUILD, duration=0:00:01.612, duration_ms=1612, data={name=upDownCounter, configuration=Debug, clean_build=false}
+timestamp=[2025-11-06 16:25:01], mode=BUILD, duration=0:00:02.999, duration_ms=2999, data={name=upDownCounter, configuration=Debug, clean_build=false}
+timestamp=[2025-11-06 16:27:19], mode=BUILD, duration=0:00:02.227, duration_ms=2227, data={name=upDownCounter, configuration=Debug, clean_build=false}
+timestamp=[2025-11-06 16:28:16], mode=BUILD, duration=0:00:02.477, duration_ms=2477, data={name=upDownCounter, configuration=Debug, clean_build=false}
+timestamp=[2025-11-06 16:29:25], mode=BUILD, duration=0:00:01.797, duration_ms=1797, data={name=upDownCounter, configuration=Debug, clean_build=false}
+timestamp=[2025-11-06 16:30:55], mode=BUILD, duration=0:00:00.560, duration_ms=560, data={name=upDownCounter, configuration=Debug, clean_build=false}
+timestamp=[2025-11-06 16:31:26], mode=BUILD, duration=0:00:01.256, duration_ms=1256, data={name=upDownCounter, configuration=Debug, clean_build=false}
+timestamp=[2025-11-06 16:32:36], mode=BUILD, duration=0:00:02.148, duration_ms=2148, data={name=upDownCounter, configuration=Debug, clean_build=false}
+timestamp=[2025-11-06 16:32:51], mode=BUILD, duration=0:00:01.542, duration_ms=1542, data={name=upDownCounter, configuration=Debug, clean_build=false}
+timestamp=[2025-11-06 16:33:18], mode=BUILD, duration=0:00:02.011, duration_ms=2011, data={name=upDownCounter, configuration=Debug, clean_build=false}
+timestamp=[2025-11-06 16:38:12], mode=BUILD, duration=0:00:03.692, duration_ms=3692, data={name=upDownCounter, configuration=Debug, clean_build=false}
+timestamp=[2025-11-06 16:40:02], mode=BUILD, duration=0:00:09.754, duration_ms=9754, data={name=upDownCounter, configuration=Debug, clean_build=false}
+timestamp=[2025-11-06 17:00:18], mode=BUILD, duration=0:00:01.582, duration_ms=1582, data={name=upDownCounter, configuration=Debug, clean_build=false}

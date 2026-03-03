@@ -1,0 +1,9 @@
+{"vcs1":{"timestamp_begin":1769590813.447805597, "rt":6.71, "ut":6.62, "st":0.25}}
+{"vcselab":{"timestamp_begin":1769590820.207042230, "rt":0.36, "ut":0.15, "st":0.04}}
+{"link":{"timestamp_begin":1769590820.604145121, "rt":0.59, "ut":0.48, "st":0.12}}
+{"SNPS_VCS_INTERNAL_ROOT_START_TIME": 1769590812.993369227}
+{"VCS_COMP_START_TIME": 1769590812.993369227}
+{"VCS_COMP_END_TIME": 1769590821.275709482}
+{"VCS_USER_OPTIONS": "-full64 -kdb -debug_access+all -ntb_opts uvm -timescale=1ns/10ps +incdir+can_verilog_source/rtl/verilog +incdir+can_tb/bench/verilog -v2k can_verilog_source/rtl/verilog/can_top.v can_verilog_source/rtl/verilog/can_acf.v can_verilog_source/rtl/verilog/can_bsp.v can_verilog_source/rtl/verilog/can_btl.v can_verilog_source/rtl/verilog/can_crc.v can_verilog_source/rtl/verilog/can_fifo.v can_verilog_source/rtl/verilog/can_ibo.v can_verilog_source/rtl/verilog/can_registers.v can_verilog_source/rtl/verilog/can_register.v can_verilog_source/rtl/verilog/can_register_syn.v can_verilog_source/rtl/verilog/can_register_asyn.v can_verilog_source/rtl/verilog/can_register_asyn_syn.v -sverilog can_tb/bench/verilog/can_testbench.v"}
+{"vcs1": {"peak_mem": 450268}}
+{"vcselab": {"peak_mem": 170348}}

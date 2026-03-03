@@ -1,0 +1,9 @@
+{"vcs1":{"timestamp_begin":1768978443.595306600, "rt":6.43, "ut":6.13, "st":0.22}}
+{"vcselab":{"timestamp_begin":1768978450.073733998, "rt":0.50, "ut":0.13, "st":0.03}}
+{"link":{"timestamp_begin":1768978450.606348468, "rt":0.23, "ut":0.16, "st":0.07}}
+{"SNPS_VCS_INTERNAL_ROOT_START_TIME": 1768978443.181555341}
+{"VCS_COMP_START_TIME": 1768978443.181555341}
+{"VCS_COMP_END_TIME": 1768978450.913514531}
+{"VCS_USER_OPTIONS": "-full64 -sverilog -ntb_opts uvm -kdb -debug_access+all -timescale=1ns/1ps rtl/ImgMemReader.sv rtl/OV7670_CCTV.sv rtl/OV7670_CCTV_TOP.sv rtl/OV7670_Mem_Controller.sv rtl/SCCB_Master.sv rtl/VGA_Decoder.sv rtl/frame_buffer.sv rtl/frame_splitter.sv rtl/pclk_gen.sv rtl/sccbRom.sv rtl/uart_top.sv rtl/fifo.v rtl/uart_rx.v rtl/uart_tx.v tb/tb_OV7670_cctv.sv"}
+{"vcs1": {"peak_mem": 500580}}
+{"vcselab": {"peak_mem": 197564}}

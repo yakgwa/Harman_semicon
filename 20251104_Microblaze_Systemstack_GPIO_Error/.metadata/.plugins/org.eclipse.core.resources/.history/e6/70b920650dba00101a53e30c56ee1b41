@@ -1,0 +1,56 @@
+/*
+ * ap.c
+ *
+ *  Created on: 2025. 11. 4.
+ *      Author: kccistc
+ */
+
+#include "ap.h"
+#include "sleep.h"
+#include "../driver/btn/btn.h"
+//hLed powerLed;
+//hLed upLed;
+hLed downLed;
+
+void ISR();
+void millisCounter();
+
+hButton upBtn;
+hLed led0;
+
+
+void ap_main()
+{
+	//LED_Init(&powerLed, LED_GPIO, LED_0);
+	//LED_Init(&upLed, LED_GPIO, LED_1);
+
+	Button_Init(&upBtn, GPIOC, GPIO_PIN_0);
+	LED_Init(&led0, GPIOB, LED_0);
+	while(1)
+	{
+		if(Button_getState(&upBtn) == ACT_RELEASED){
+			LED_Toggle(&led0);
+		}
+
+		//disPowerInd();
+		//runUpCounter();
+        ISR();
+
+	}
+
+}
+
+
+void ISR() // Interrupt Service Routine
+{
+	millisCounter();
+
+	FND_DispNumber();
+}
+
+void millisCounter() // Interrupt Service Routine
+{
+	incMillis();
+	usleep(1000); // 1ms rest
+
+}

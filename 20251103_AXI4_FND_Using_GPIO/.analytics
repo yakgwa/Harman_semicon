@@ -1,0 +1,4 @@
+timestamp=[2025-11-04 08:32:09], mode=WORKBENCH_START, duration=0:00:08.032, duration_ms=8032, data={}
+timestamp=[2025-11-04 08:32:10], mode=WORKBENCH_UI_INIT, duration=0:00:00.588, duration_ms=588, data={editors_count=0, platform_editors_count=0, projects_count=0, platform_projects_count=0, active_platform_editor=false, projects=}
+timestamp=[2025-11-04 08:32:17], mode=PLATFORM_REPOSITORY_INIT, duration=0:00:06.904, duration_ms=6904, data={}
+timestamp=[2025-11-04 08:32:48], mode=APP_CREATION, duration=0:00:10.535, duration_ms=10535, data={name=FND_Test, project_type=sdk, os=standalone, processor=microblaze, runtime=cpp, platform=design_1_wrapper, application_type=application}

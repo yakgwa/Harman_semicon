@@ -1,0 +1,73 @@
+/*
+ * ap.c
+ *
+ *  Created on: 2025. 11. 4.
+ *      Author: kccistc
+ */
+
+#include "ap.h"
+#include "sleep.h"
+#include "xintc.h"
+#include "xil_exception.h"
+#include "../driver/btn/button.h"
+#include "../driver/common/millis.h"
+
+hButton upBtn;
+hLed powerLed;
+
+
+void ISR();
+void millisCounter();
+
+void ap_main()
+{
+
+//   initPowerInd();
+//   initUpCounter();
+
+   LED_Init(&powerLed, LED_GPIO, LED_0);
+   Millis_Init(TIMER1);
+
+//   Button_Init(&upBtn, GPIOC, GPIO_PIN_0);
+//   LED_Init(&led0, GPIOB, LED_0);
+
+   uint32_t prevTime = 0;
+   uint32_t curTime;
+
+   while(1)
+   {
+      curTime = millis();
+      if (curTime - prevTime > 500){
+         prevTime = curTime;
+         LED_Toggle(&powerLed);
+      }
+//      dispPowerInd();
+//      runUpCounter();
+//      exeUpCounter();
+//      if (Button_getState(&upBtn) == ACT_RELEASED){
+//         LED_Toggle(&led0);
+//      }
+
+//      ISR();
+   }
+}
+
+
+
+void intc_init()
+{
+   int status =
+}
+
+void ISR() // Interrupt Service Routine
+{
+   millisCounter();
+   FND_DispNumber();
+}
+
+void millisCounter()
+{
+   incMillis();
+   usleep(100);
+}
+

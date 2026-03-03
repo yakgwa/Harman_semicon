@@ -1,0 +1,17 @@
+/*
+ * btn.h
+ *
+ *  Created on: 2025. 11. 5.
+ *      Author: kccistc
+ */
+
+#ifndef SRC_DRIVER_BTN_BTN_H_
+#define SRC_DRIVER_BTN_BTN_H_
+
+typedef struct {
+	GPIO_TypeDef *gpio;
+} hBtn;
+
+void BTN_Init();
+
+#endif /* SRC_DRIVER_BTN_BTN_H_ */

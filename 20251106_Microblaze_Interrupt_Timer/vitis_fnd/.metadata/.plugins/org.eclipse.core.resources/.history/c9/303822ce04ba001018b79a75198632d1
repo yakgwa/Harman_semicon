@@ -1,0 +1,19 @@
+/*
+ * btn.c
+ *
+ *  Created on: 2025. 11. 5.
+ *      Author: kccistc
+ */
+
+#include "btn.h"
+
+hBtn btn;
+
+void BTN_Init(hBtn *pBtn, GPIO_TypeDef *gpio, int pinNum) {
+
+	uint8_t pin;
+
+	pBtn
+
+	//btn.gpio = GPIOC;
+}

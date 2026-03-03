@@ -1,0 +1,21 @@
+/*
+ * gpio.c
+ *
+ *  Created on: 2025. 11. 4.
+ *      Author: kccistc
+ */
+
+#include "gpio.h"
+
+void GPIO_Init(GPIO_TypeDef *gpio, uint8_t dir) {
+	gpio->CR = dir;
+}
+
+void GPIO_Write(GPIO_TypeDef *gpio, uint8_t data) {
+	gpio->ODR = data;
+}
+
+uint8_t GPIO_Read(GPIO_TypeDef *gpio) {
+	return gpio->IDR;
+
+}

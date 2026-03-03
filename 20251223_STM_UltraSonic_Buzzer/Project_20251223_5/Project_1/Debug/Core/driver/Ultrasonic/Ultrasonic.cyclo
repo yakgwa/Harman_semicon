@@ -1,0 +1,6 @@
+../Core/driver/Ultrasonic/Ultrasonic.c:65:6:UltraSonic_init	1
+../Core/driver/Ultrasonic/Ultrasonic.c:70:6:UltraSonic_trigger	2
+../Core/driver/Ultrasonic/Ultrasonic.c:83:6:UltraSonic_ISR	2
+../Core/driver/Ultrasonic/Ultrasonic.c:98:5:UltraSonic_getDistance	1
+../Core/driver/Ultrasonic/Ultrasonic.c:104:5:UltraSonic_getCmpltFlag	1
+../Core/driver/Ultrasonic/Ultrasonic.c:109:6:UltraSonic_setCmpltFlag	1

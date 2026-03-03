@@ -1,0 +1,13 @@
+/*
+ * upCounter.c
+ *
+ *  Created on: 2025. 11. 5.
+ *      Author: kccistc
+ */
+
+
+int counter = 0;
+
+
+
+

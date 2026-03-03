@@ -1,0 +1,9 @@
+../Core/ap/StopWatch/StopWatch.c:10:6:StopWatch_Init	1
+../Core/ap/StopWatch/StopWatch.c:15:6:StopWatch_ISR	2
+../Core/ap/StopWatch/StopWatch.c:21:6:StopWatch_IncMSec	5
+../Core/ap/StopWatch/StopWatch.c:51:6:StopWatch_Clear	1
+../Core/ap/StopWatch/StopWatch.c:58:6:StopWatch_RunState	1
+../Core/ap/StopWatch/StopWatch.c:62:6:StopWatch_StopState	1
+../Core/ap/StopWatch/StopWatch.c:66:6:StopWatch_ClearState	1
+../Core/ap/StopWatch/StopWatch.c:70:6:StopWatch_DispLCD	4
+../Core/ap/StopWatch/StopWatch.c:91:6:StopWatch_Execute	8

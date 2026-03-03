@@ -1,0 +1,107 @@
+#include <stdio.h>
+#include <stdint.h>
+#include <sleep.h>
+#include "platform.h"
+#include "xil_printf.h"
+
+// I2C 구조체 정의
+typedef struct {
+   volatile uint32_t CMD;
+   volatile uint32_t tx_data;
+   volatile uint32_t rx_data;
+   volatile uint32_t SR;
+} IIC_typedef;
+
+// I2C 명령어 정의
+typedef enum {
+   IDLE_CMD = 0,
+   START_CMD = 1,
+   STOP_CMD = 2,
+   RESTART_CMD = 3,
+   RD_CMD = 4,
+   WR_CM = 5
+} IIC_CMD;
+
+#define IIC_BASEADDR 0x44a00000
+#define IIC ((IIC_typedef *) IIC_BASEADDR)
+
+// 버튼 상태
+#define BUTTON_PRESSED 1
+#define BUTTON_RELEASED 0
+
+// I2C 함수 선언
+void start_transmission(IIC_typedef * iic, uint32_t target_slaveNum, uint32_t start_regAddr);
+void write_IIC(IIC_typedef * iic, uint32_t data);
+void stop_transmission(IIC_typedef * iic);
+
+int main() {
+   init_platform();
+
+   uint32_t target_slaveNum = 0b00000000; // 슬레이브 주소
+   uint32_t start_regAddr = 0b00000000; // 시작 레지스터 주소
+
+   int button_state = BUTTON_RELEASED;  // 버튼 상태 초기화
+   int prev_button_state = BUTTON_RELEASED;  // 이전 버튼 상태 초기화
+   uint32_t counter = 100;  // 카운터 시작 값
+
+   while (1) {
+      // 버튼 상태 읽기 (여기서는 GPIO에서 버튼을 읽는 코드로 가정)
+      // 실제 버튼 입력을 읽어오는 부분을 추가해야 합니다.
+      // button_state = read_button_state(); // 실제 버튼 상태를 읽는 코드 필요
+
+      // 버튼이 눌렸을 때만 처리 (디바운싱 적용)
+      if (button_state == BUTTON_PRESSED && prev_button_state == BUTTON_RELEASED) {
+         // 버튼을 눌렀을 때 I2C 전송 시작
+         start_transmission(IIC, target_slaveNum, start_regAddr);
+         print("Start Transmission!\n");
+
+         // 카운터 값을 I2C로 전송
+         write_IIC(IIC, counter);
+         xil_printf("Sent Value: %d\n", counter);
+
+         // 카운터 증가
+         counter++;
+
+         // I2C 전송 종료
+         stop_transmission(IIC);
+         print("Stop Transmission!\n");
+
+         // 버튼 상태를 눌림으로 업데이트
+         prev_button_state = BUTTON_PRESSED;
+      }
+      // 버튼이 떼어졌을 때 상태 초기화
+      else if (button_state == BUTTON_RELEASED) {
+         prev_button_state = BUTTON_RELEASED;
+      }
+
+      // 짧은 지연을 두어 버튼 중복 입력 방지
+      usleep(100000); // 100ms 지연
+   }
+
+   cleanup_platform();
+   return 0;
+}
+
+// I2C 시작 함수
+void start_transmission(IIC_typedef * iic, uint32_t target_slaveNum, uint32_t start_regAddr) {
+   iic->CMD = START_CMD;
+   iic->CMD = IDLE_CMD;
+   while (!(iic->SR & (1 << 2)));  // 상태 레지스터 확인
+   write_IIC(iic, target_slaveNum);
+   write_IIC(iic, start_regAddr);
+}
+
+// I2C 데이터 전송 함수
+void write_IIC(IIC_typedef * iic, uint32_t data) {
+   iic->tx_data = data;
+   iic->CMD = WR_CM;
+   iic->CMD = IDLE_CMD;
+   while (!(iic->SR & (1 << 2)));  // 상태 레지스터 확인
+}
+
+// I2C 전송 종료 함수
+void stop_transmission(IIC_typedef * iic) {
+   iic->CMD = STOP_CMD;
+   iic->CMD = IDLE_CMD;
+   while (!(iic->SR & (1 << 2)));  // 상태 레지스터 확인
+}

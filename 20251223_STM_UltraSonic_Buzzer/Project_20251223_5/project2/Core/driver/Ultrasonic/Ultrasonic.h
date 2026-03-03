@@ -1,0 +1,26 @@
+/*
+ * Ultrasonic.h
+ *
+ *  Created on: Dec 24, 2025
+ *      Author: kccistc
+ */
+
+#ifndef DRIVER_ULTRASONIC_ULTRASONIC_H_
+#define DRIVER_ULTRASONIC_ULTRASONIC_H_
+
+#include "stm32f4xx_hal.h"
+
+#define ULTRASONIC_TRIGGER_GPIO			GPIOC
+#define ULTRASONIC_TRIGGER_GPIO_PIN		GPIO_PIN_5
+#define ULTRASONIC_ECHO_GPIO			GPIOB
+#define ULTRASONIC_ECHO_GPIO_PIN		GPIO_PIN_9
+
+void UltraSonic_init(TIM_HandleTypeDef *phUSonicTim);
+int UltraSonic_getCmpltFlag();
+void UltraSonic_setCmpltFlag(int state);
+void UltraSonic_ISR();
+void UltraSonic_trigger();
+int UltraSonic_getDistance();
+
+#endif /* DRIVER_ULTRASONIC_ULTRASONIC_H_ */
+

@@ -1,0 +1,6 @@
+../Core/driver/fnd/fnd.c:29:6:FND_ISR	8	static
+../Core/driver/fnd/fnd.c:34:6:FND_SetNum	16	static
+../Core/driver/fnd/fnd.c:39:6:FND_DispDigit	32	static
+../Core/driver/fnd/fnd.c:65:6:FND_Alloff	8	static
+../Core/driver/fnd/fnd.c:73:6:FND_DigitOn	16	static
+../Core/driver/fnd/fnd.c:96:6:FND_DispNum	8	static

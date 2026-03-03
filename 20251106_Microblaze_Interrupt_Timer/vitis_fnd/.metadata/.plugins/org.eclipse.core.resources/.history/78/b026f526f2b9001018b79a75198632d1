@@ -1,0 +1,32 @@
+/*
+ * upCounter.c
+ *
+ *  Created on: 2025. 11. 5.
+ *      Author: kccistc
+ */
+
+#include "upCounter.h"
+
+int counter = 0;
+hLed upLed;
+hLed downLed;
+
+void initUpcounter() {
+	FND_Init();
+}
+
+void runUpCounter() {
+	static uint32_t prevTime = 0;
+	uint32_t curTime = millis();
+
+	if (curTime - prevTime < 100) return;
+	prevTime = curTime;
+
+	FND_SetNumber(counter++);
+	LED_Toggle(&upLed);
+}
+
+
+void clearUpCounter() {
+	counter = 0;
+}

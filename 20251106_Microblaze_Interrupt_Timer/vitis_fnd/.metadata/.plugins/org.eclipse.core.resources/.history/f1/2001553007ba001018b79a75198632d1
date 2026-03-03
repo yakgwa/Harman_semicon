@@ -1,0 +1,34 @@
+/*
+ * button.c
+ *
+ *  Created on: 2025. 11. 5.
+ *      Author: kccistc
+ */
+
+#include "button.h"
+
+typedef struct {
+	GPIO_TypeDef *gpio;
+	int pinNum;
+} hButton;
+
+int Button_getState(hButton *btn) {
+	int curState = GPIO_Read(btn->gpio, btn->pinNum);
+
+if((curState == PUSHED)&&(btn->pr))
+}
+
+//hBtn btn;
+//
+//void BTN_Init(hBtn *pBtn, GPIO_TypeDef *gpio, int pinNum) {
+//
+//	uint8_t pin;
+//
+//	pBtn->gpio = gpio;
+//	pBtn->pinNum = pinNum;
+//	pin = gpio->CR;
+//	pin |= (1 << pinNum);
+//
+//	//btn.gpio = GPIOC;
+//}
+

@@ -1,0 +1,18 @@
+/*
+ * button.h
+ *
+ *  Created on: 2025. 11. 5.
+ *      Author: kccistc
+ */
+
+#ifndef SRC_DRIVER_BTN_BUTTON_H_
+#define SRC_DRIVER_BTN_BUTTON_H_
+
+typedef struct {
+	GPIO_TypeDef *gpio;
+} hBtn;
+
+void BTN_Init();
+int Button_getState(hButton *btn);
+
+#endif /* SRC_DRIVER_BTN_BUTTON_H_ */

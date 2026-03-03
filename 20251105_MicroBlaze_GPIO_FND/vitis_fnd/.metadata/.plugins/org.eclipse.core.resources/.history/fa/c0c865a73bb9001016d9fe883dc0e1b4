@@ -1,0 +1,20 @@
+/*
+ * led.h
+ *
+ *  Created on: 2025. 11. 4.
+ *      Author: kccistc
+ */
+
+#ifndef SRC_DRIVER_LED_LED_H_
+#define SRC_DRIVER_LED_LED_H_
+#include "../../device/gpio/gpio.h"
+
+void LED_Init();
+void LED_On();
+void LED_Off();
+
+void GPIO_Init(GPIO_TypeDef *gpio, uint8_t dir);
+void GPIO_Write(GPIO_TypeDef *gpio, uint8_t data);
+uint8_t GPIO_Read(GPIO_TypeDef *gpio);
+
+#endif /* SRC_DRIVER_LED_LED_H_ */

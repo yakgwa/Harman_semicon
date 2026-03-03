@@ -1,0 +1,54 @@
+/*
+ * ap.c
+ *
+ *  Created on: 2025. 11. 4.
+ *      Author: kccistc
+ */
+
+#include "ap.h"
+#include "sleep.h"
+
+//hLed powerLed;
+//hLed upLed;
+hLed downLed;
+
+void ISR();
+void millisCounter();
+
+
+void ap_main()
+{
+	//LED_Init(&powerLed, LED_GPIO, LED_0);
+	//LED_Init(&upLed, LED_GPIO, LED_1);
+	LED_Init(&downLed, LED_GPIO, LED_2);
+
+	//FND_Init();
+
+	initPowerInd();
+	initUpCounter();
+
+	while(1)
+	{
+
+		disPowerInd();
+		runUpCounter();
+        ISR();
+
+	}
+
+}
+
+
+void ISR() // Interrupt Service Routine
+{
+	millisCounter();
+
+	FND_DispNumber();
+}
+
+void millisCounter() // Interrupt Service Routine
+{
+	incMillis();
+	usleep(10000); // 1ms rest
+
+}

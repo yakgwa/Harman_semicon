@@ -1,0 +1,3 @@
+../Core/ap/Model/Model_Mode.c:15:6:Model_ModeInit	1
+../Core/ap/Model/Model_Mode.c:20:6:Model_SetMode	1
+../Core/ap/Model/Model_Mode.c:24:13:Model_GetMode	1

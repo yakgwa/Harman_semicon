@@ -1,0 +1,113 @@
+#include <stdio.h>
+#include <stdint.h>
+#include <sleep.h>
+#include "platform.h"
+#include "xil_printf.h"
+
+// I2C 관련 정의
+typedef struct {
+   volatile uint32_t CMD;
+   volatile uint32_t tx_data;
+   volatile uint32_t rx_data;
+   volatile uint32_t SR;
+} IIC_typedef;
+
+typedef enum {
+   IDLE_CMD = 0,
+   START_CMD = 1,
+   STOP_CMD = 2,
+   RESTART_CMD = 3,
+   RD_CMD = 4,
+   WR_CM = 5
+} IIC_CMD;
+
+#define IIC_BASEADDR 0x44a00000
+#define IIC ((IIC_typedef *) IIC_BASEADDR)
+
+// FND 관련 정의 (7-segment 디스플레이)
+#define FND_BASEADDR 0x44A00000  // FND의 메모리 주소를 확인하여 설정
+#define FND ((volatile uint32_t *) FND_BASEADDR)
+
+// 7-segment 비트 패턴 (0-9)
+uint32_t segment_data[] = {
+    0x3F,  // 0
+    0x06,  // 1
+    0x5B,  // 2
+    0x4F,  // 3
+    0x66,  // 4
+    0x6D,  // 5
+    0x7D,  // 6
+    0x07,  // 7
+    0x7F,  // 8
+    0x6F   // 9
+};
+
+// 함수 선언
+void start_transmission(IIC_typedef * iic, uint32_t target_slaveNum, uint32_t start_regAddr);
+void write_IIC(IIC_typedef * iic, uint32_t data);
+void stop_transmission(IIC_typedef * iic);
+void write_fnd(uint32_t fndData);
+
+// I2C 통신 시작
+void start_transmission(IIC_typedef * iic, uint32_t target_slaveNum, uint32_t start_regAddr) {
+   iic->CMD = START_CMD;
+   iic->CMD = IDLE_CMD;
+   while (!(iic->SR & (1 << 2)));
+   write_IIC(iic, target_slaveNum);
+   write_IIC(iic, start_regAddr);
+}
+
+// I2C 데이터 전송
+void write_IIC(IIC_typedef * iic, uint32_t data) {
+   iic->tx_data = data;
+   iic->CMD = WR_CM;
+   iic->CMD = IDLE_CMD;
+   while (!(iic->SR & (1 << 2)));
+}
+
+// I2C 통신 종료
+void stop_transmission(IIC_typedef * iic) {
+   iic->CMD = STOP_CMD;
+   iic->CMD = IDLE_CMD;
+   while (!(iic->SR & (1 << 2)));
+}
+
+// FND에 숫자 출력 (1000 ~ 9999 범위)
+void write_fnd(uint32_t fndData) {
+    uint32_t digits[4];  // 4자리 수로 나눠서 저장
+    for (int i = 3; i >= 0; i--) {
+        digits[i] = fndData % 10;  // 마지막 자리부터 나누어 저장
+        fndData /= 10;
+    }
+
+    // FND에 각 자리에 맞는 7-segment 비트 패턴을 전송
+    for (int i = 0; i < 4; i++) {
+        uint32_t data = segment_data[digits[i]];  // 각 자리에 맞는 비트 패턴
+        *FND = data;  // FND에 출력
+        sleep(1);  // 1초 간격으로 출력 (필요에 따라 조정 가능)
+    }
+}
+
+int main() {
+   init_platform();
+
+   uint32_t target_slaveNum = 0b00000000;  // I2C 슬레이브 주소
+   uint32_t start_regAddr = 0b00000000;    // 시작 레지스터 주소
+
+   uint32_t counter = 1000;  // 출력할 초기 값 (1000)
+
+   start_transmission(IIC, target_slaveNum, start_regAddr);
+   print("Start Transmission!\n");
+
+   // I2C를 통해 데이터를 전송
+   write_IIC(IIC, counter);  // 초기 카운터 값 전송
+
+   // FND에 숫자 출력
+   write_fnd(counter);
+
+   stop_transmission(IIC);
+   print("Stop Transmission!\n");
+
+   cleanup_platform();
+   return 0;
+}

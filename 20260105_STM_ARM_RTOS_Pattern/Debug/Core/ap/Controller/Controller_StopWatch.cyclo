@@ -1,0 +1,6 @@
+../Core/ap/Controller/Controller_StopWatch.c:12:6:Controller_StopWatch_Init	1
+../Core/ap/Controller/Controller_StopWatch.c:24:6:Controller_StopWatch_Excute	5
+../Core/ap/Controller/Controller_StopWatch.c:39:6:Controller_StopWatch_Stop	4
+../Core/ap/Controller/Controller_StopWatch.c:56:6:Controller_StopWatch_Run	4
+../Core/ap/Controller/Controller_StopWatch.c:84:6:Controller_StopWatch_Clear	1
+../Core/ap/Controller/Controller_StopWatch.c:97:6:Controller_StopWatch_IncTimeCallBack	7

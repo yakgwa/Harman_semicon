@@ -1,0 +1,70 @@
+/*
+ * ap.c
+ *
+ *  Created on: 2025. 11. 4.
+ *      Author: kccistc
+ */
+
+#include "ap.h"
+
+hLed powerLed;
+hLed upLed;
+hLed downLed;
+
+void ap_main()
+{
+	LED_Init(&powerLed, LED_GPIO, LED_0);
+	LED_Init(&upLed, LED_GPIO, LED_1);
+	LED_Init(&downLed, LED_GPIO, LED_2);
+
+	FND_Init();
+
+	int counter = 0;
+
+	while(1)
+	{
+        FND_DispNumber(counter);
+        usleep(1000);
+        tick += 1;
+
+        // 1초마다 counter++
+        if (tick - last_counter >= 1000)
+        {
+            counter++;
+            last_counter = tick;
+        }
+
+        // 500ms마다 LED Toggle
+        if (tick - last_led_toggle >= 500)
+        {
+            LED_Toggle(&powerLed);
+            last_led_toggle = tick;
+        }
+    }
+		//FND_DispNumber(counter++);
+		//LED_Toggle(&powerLed);
+		//LED_Off(&powerLed);
+		//usleep(100000);
+		//LED_Off(&upLed);
+		//usleep(100000);
+		//LED_Off(&downLed);
+		//usleep(100000);
+
+		//LED_On(&powerLed);
+		//usleep(100000);
+		//LED_On(&upLed);
+		//usleep(100000);
+		//LED_On(&downLed);
+		//usleep(100000);
+
+		//LED_Off(&powerLed);
+		//usleep(100000);
+		//LED_Off(&upLed);
+		//usleep(100000);
+		//LED_Off(&downLed);
+		//usleep(100000);
+
+	}
+
+}
+

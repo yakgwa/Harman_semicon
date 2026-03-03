@@ -1,0 +1,14 @@
+/*
+ * btn.c
+ *
+ *  Created on: 2025. 11. 5.
+ *      Author: kccistc
+ */
+
+#include "btn.h"
+
+hBtn btn;
+
+void BTN_Init() {
+	btn.gpio = GPIOC;
+}

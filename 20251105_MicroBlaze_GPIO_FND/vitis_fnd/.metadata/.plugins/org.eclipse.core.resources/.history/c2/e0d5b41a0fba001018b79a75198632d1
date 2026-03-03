@@ -1,0 +1,56 @@
+/*
+ * upCounter.c
+ *
+ *  Created on: 2025. 11. 5.
+ *      Author: kccistc
+ */
+
+#include "upCounter.h"
+
+enum { STOP,RUN,CLEAR };
+
+int upCounterState = STOP;
+int counter = 0;
+hLed upLed;
+hLed downLed;
+
+void initUpcounter() {
+	upCounterState = STOP;
+	counter = 0;
+	FND_Init();
+	LED_Init(&upLed, LED_GPIO, LED_1);
+	LED_Init(&downLed, LED_GPIO, LED_2);
+}
+
+
+void exeUPCounter() {
+	switch (upCounterState) {
+	case STOP:
+		break;
+	case RUN:
+		runUpCounter();
+		break;
+	case CLEAR:
+		clearUpCounter();
+		break;
+	}
+}
+
+
+
+void runUpCounter() {
+	static uint32_t prevTime = 0;
+	uint32_t curTime = millis();
+
+	if (curTime - prevTime < 100) return;
+	prevTime = curTime;
+
+	FND_SetNumber(counter++);
+	LED_Off(&downLed);
+	LED_Toggle(&upLed);
+}
+
+
+void clearUpCounter() {
+	counter = 0;
+}

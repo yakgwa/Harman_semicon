@@ -1,0 +1,38 @@
+/*
+ * btn.c
+ *
+ *  Created on: 2025. 11. 4.
+ *      Author: kccistc
+ */
+
+
+#include "btn.h"
+
+void BTN_Init(hBtn *pBtn, GPIO_TypeDef *gpio, int pinNum) {
+    if (btn == NULL) return;
+
+    btn->gpio   = gpio;
+    btn->pinNum = pinNum;
+
+}
+
+void BTN_Push(hBtn *pBtn) {
+    if (btn == NULL) return;s
+
+    // GPIO에서 해당 핀 읽기
+    int pinState = (btn->gpio->IDR >> btn->pinNum) & 0x1;
+
+    if (pinState == 0) { // Push
+
+    }
+}
+
+void BTN_Pop(hBtn *pBtn) {
+    if (btn == NULL) return;
+
+    // GPIO에서 해당 핀 읽기
+    int pinState = (btn->gpio->IDR >> btn->pinNum) & 0x1;
+
+    if (pinState == 1) { Pop
+    }
+}

@@ -1,0 +1,20 @@
+/*
+ * led.c
+ *
+ *  Created on: 2025. 11. 4.
+ *      Author: kccistc
+ */
+
+#include "led.h"
+
+void LED_Init(GPIO_TypeDef *gpio, uint8_t led){
+
+}
+
+void LED_On(GPIO_TypeDef *gpio, uint8_t led){
+
+}
+
+void LED_Off(GPIO_TypeDef *gpio, uint8_t led){
+
+}

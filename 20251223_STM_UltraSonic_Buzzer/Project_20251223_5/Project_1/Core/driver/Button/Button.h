@@ -1,0 +1,26 @@
+/*
+ * Button.h
+ *
+ *  Created on: Dec 24, 2025
+ *      Author: kccistc
+ */
+
+#ifndef DRIVER_BUTTON_BUTTON_H_
+#define DRIVER_BUTTON_BUTTON_H_
+
+#include "stm32f4xx_hal.h"
+
+enum {PUSHED=0, RELEASED};
+enum {ACT_PUSHED=0, ACT_RELEASED, NO_ACT};
+
+typedef struct{
+	GPIO_TypeDef* GPIO;
+	uint16_t GPIO_Pin;
+	int prevState;
+}Button_TypeDef;
+
+void Button_init(Button_TypeDef *hbutton, GPIO_TypeDef *GPIO, uint16_t GPIO_Pin);
+int Button_getState(Button_TypeDef *hbutton);
+
+#endif /* DRIVER_BUTTON_BUTTON_H_ */
+

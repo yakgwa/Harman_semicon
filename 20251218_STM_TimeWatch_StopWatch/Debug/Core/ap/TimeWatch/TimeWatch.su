@@ -1,0 +1,9 @@
+../Core/ap/TimeWatch/TimeWatch.c:20:6:TimeWatch_Init	8	static
+../Core/ap/TimeWatch/TimeWatch.c:25:6:TimeWatch_ISR	8	static
+../Core/ap/TimeWatch/TimeWatch.c:30:6:TimeWatch_IncMSec	4	static
+../Core/ap/TimeWatch/TimeWatch.c:58:6:TimeWatch_DispLCD	112	static
+../Core/ap/TimeWatch/TimeWatch.c:81:6:TimeWatch_Execute	8	static
+../Core/ap/TimeWatch/TimeWatch.c:85:6:TimeWatch_Modify	8	static
+../Core/ap/TimeWatch/TimeWatch.c:108:6:TimeWatch_ModifyHour	8	static
+../Core/ap/TimeWatch/TimeWatch.c:118:6:TimeWatch_ModifyMin	8	static
+../Core/ap/TimeWatch/TimeWatch.c:128:6:TimeWatch_ModifySec	8	static

@@ -1,0 +1,21 @@
+/*
+ * ap.h
+ *
+ *  Created on: 2025. 11. 4.
+ *      Author: kccistc
+ */
+
+#ifndef SRC_AP_AP_H_
+#define SRC_AP_AP_H_
+
+#include "../driver/led/led.h"
+
+#define LED_0 GPIO_PIN_4;
+#define LED_1 GPIO_PIN_5;
+#define LED_2 GPIO_PIN_6;
+#define LED_3 GPIO_PIN_7;
+
+void ap_main();
+
+
+#endif /* SRC_AP_AP_H_ */

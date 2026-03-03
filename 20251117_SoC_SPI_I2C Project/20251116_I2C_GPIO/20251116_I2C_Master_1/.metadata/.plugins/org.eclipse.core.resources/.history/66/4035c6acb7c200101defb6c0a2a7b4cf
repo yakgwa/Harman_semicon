@@ -1,0 +1,94 @@
+#include <stdio.h>
+#include <stdint.h>
+#include <sleep.h>
+#include "platform.h"
+#include "xil_printf.h"
+
+// GPIO 설정 (예시로 GPIO0을 버튼으로 가정)
+#define GPIO_BASEADDR 0x41200000  // 실제 GPIO 주소를 확인하세요.
+#define GPIO ((volatile uint32_t *) GPIO_BASEADDR)
+
+typedef struct {
+   volatile uint32_t CMD;
+   volatile uint32_t tx_data;
+   volatile uint32_t rx_data;
+   volatile uint32_t SR;
+} IIC_typedef;
+
+typedef enum {
+   IDLE_CMD = 0,
+   START_CMD = 1,
+   STOP_CMD = 2,
+   RESTART_CMD = 3,
+   RD_CMD = 4,
+   WR_CM = 5
+} IIC_CMD;
+
+#define IIC_BASEADDR 0x44a00000  // I2C 컨트롤러의 베이스 주소
+#define IIC ((IIC_typedef *) IIC_BASEADDR)
+
+void start_transmission(IIC_typedef * iic, uint32_t target_slaveNum, uint32_t start_regAddr);
+void write_IIC(IIC_typedef * iic, uint32_t data);
+void stop_transmission(IIC_typedef * iic);
+uint32_t read_button();
+
+int main() {
+   init_platform();
+
+   uint32_t target_slaveNum = 0b00000000;  // 슬레이브 주소
+   uint32_t start_regAddr = 0b00000000;    // 시작 레지스터 주소
+   uint32_t counter = 0;                    // 카운터 변수 (초기 값: 0)
+
+   // I2C 통신 시작
+   start_transmission(IIC, target_slaveNum, start_regAddr);
+   print("Start Transmission!\n");
+
+   while (1) {
+      uint32_t button_state = read_button();  // 버튼 상태 읽기
+
+      if (button_state == 1) {  // 버튼이 눌렸을 때
+         write_IIC(IIC, counter);  // 카운터 값을 전송
+         xil_printf("Sent counter: %d\n", counter);
+         counter++;  // 카운터 값 증가
+
+         // 버튼이 눌렸을 때 잠시 대기 (디바운싱을 위한 지연)
+         sleep(1);
+      }
+   }
+
+   stop_transmission(IIC);
+   print("Stop Transmission!\n");
+
+   cleanup_platform();
+   return 0;
+}
+
+// I2C 전송 시작
+void start_transmission(IIC_typedef * iic, uint32_t target_slaveNum, uint32_t start_regAddr) {
+   iic->CMD = START_CMD;  // 시작 명령
+   iic->CMD = IDLE_CMD;   // IDLE 상태로 설정
+   while (!(iic->SR & (1 << 2)));  // 전송이 완료될 때까지 대기
+   write_IIC(iic, target_slaveNum);  // 슬레이브 주소 전송
+   write_IIC(iic, start_regAddr);    // 시작 레지스터 주소 전송
+}
+
+// I2C 데이터 전송
+void write_IIC(IIC_typedef * iic, uint32_t data) {
+   iic->tx_data = data;   // 전송할 데이터를 설정
+   iic->CMD = WR_CM;      // 쓰기 명령 전송
+   iic->CMD = IDLE_CMD;   // 명령을 IDLE 상태로 설정
+   while (!(iic->SR & (1 << 2)));  // 전송 완료될 때까지 대기
+}
+
+// I2C 통신 종료
+void stop_transmission(IIC_typedef * iic) {
+   iic->CMD = STOP_CMD;   // STOP 명령 전송
+   iic->CMD = IDLE_CMD;   // 명령을 IDLE 상태로 설정
+   while (!(iic->SR & (1 << 2)));  // 전송 완료될 때까지 대기
+}
+
+// 버튼 상태를 읽는 함수 (예: GPIO0 사용)
+uint32_t read_button() {
+   // GPIO0의 버튼 상태 읽기 (상위 비트가 눌림 상태일 경우 1)
+   return (GPIO[0] & (1 << 0)) ? 1 : 0;
+}

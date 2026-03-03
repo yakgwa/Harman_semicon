@@ -1,0 +1,34 @@
+/*
+ * fnd.c
+ *
+ *  Created on: 2025. 11. 4.
+ *      Author: kccistc
+ */
+
+#include "fnd.h"
+
+hFnd fnd;
+int fndNumber;
+
+void FND_Init()
+{
+	fnd.gpio_seg = GPIOA;
+	fnd.gpio_com = GPIOB;
+	fnd.digit_1 = GPIO_PIN_0;
+	fnd.digit_10 = GPIO_PIN_1;
+	fnd.digit_100 = GPIO_PIN_2;
+	fnd.digit_1000 = GPIO_PIN_3;
+}
+
+void FND_DispNumber(int number)
+{
+	fndNumber = number;
+	FND_SelDigit(fnd.digit_1);
+	FND_ShowDigit(fndNumber%10);
+	FND_SelDigit(fnd.digit_10);
+	FND_ShowDigit(fndNumber/10%10);
+	FND_SelDigit(fnd.digit_100);
+	FND_ShowDigit(fndNumber/100%10);
+	FND_SelDigit(fnd.digit_1000);
+	FND_ShowDigit(fndNumber/1000%10);
+}

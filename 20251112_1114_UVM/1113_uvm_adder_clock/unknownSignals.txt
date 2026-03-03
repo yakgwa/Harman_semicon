@@ -1,0 +1,5 @@
+tb_adder.a_if.clk
+tb_adder.a_if.reset
+tb_adder.a_if.a[7:0]
+tb_adder.a_if.b[7:0]
+tb_adder.a_if.y[8:0]

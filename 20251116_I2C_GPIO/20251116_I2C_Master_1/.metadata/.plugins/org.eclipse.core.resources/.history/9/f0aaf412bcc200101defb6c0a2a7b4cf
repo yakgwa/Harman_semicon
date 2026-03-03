@@ -1,0 +1,74 @@
+#include <stdio.h>
+#include <stdint.h>
+#include <sleep.h>
+#include "platform.h"
+#include "xil_printf.h"
+
+typedef struct {
+   volatile uint32_t CMD;
+   volatile uint32_t tx_data;
+   volatile uint32_t rx_data;
+   volatile uint32_t SR;
+} IIC_typedef;
+
+typedef enum {
+   IDLE_CMD = 0,
+   START_CMD = 1,
+   STOP_CMD = 2,
+   RESTART_CMD = 3,
+   RD_CMD = 4,
+   WR_CM = 5
+} IIC_CMD;
+
+#define IIC_BASEADDR 0x44a00000
+#define IIC ((IIC_typedef *) IIC_BASEADDR)
+
+void start_transmission(IIC_typedef * iic, uint32_t target_slaveNum, uint32_t start_regAddr);
+void write_IIC(IIC_typedef * iic, uint32_t data);
+void stop_transmission(IIC_typedef * iic);
+
+int main() {
+   init_platform();
+
+   uint32_t target_slaveNum = 0b00000000;
+   uint32_t start_regAddr = 0b00000000;
+
+   // 데이터 초기값을 1000으로 설정
+   uint32_t data = 1000;
+
+   start_transmission(IIC, target_slaveNum, start_regAddr);
+   print("Start Transmission!\n");
+
+   // 1000을 4자리로 분리하여 전송
+   write_IIC(IIC, 1);  // 첫 번째 자리 (1)
+   write_IIC(IIC, 0);  // 두 번째 자리 (0)
+   write_IIC(IIC, 0);  // 세 번째 자리 (0)
+   write_IIC(IIC, 0);  // 네 번째 자리 (0)
+
+   stop_transmission(IIC);
+   print("Stop Transmission!\n");
+
+   cleanup_platform();
+   return 0;
+}
+
+void start_transmission(IIC_typedef * iic, uint32_t target_slaveNum, uint32_t start_regAddr) {
+   iic->CMD = START_CMD;   // START 명령
+   iic->CMD = IDLE_CMD;    // IDLE 상태로 복귀
+   while (!(iic->SR & (1 << 2)));  // 전송 준비가 완료될 때까지 대기
+   write_IIC(iic, target_slaveNum);  // 슬레이브 주소 전송
+   write_IIC(iic, start_regAddr);  // 레지스터 주소 전송
+}
+
+void write_IIC(IIC_typedef * iic, uint32_t data) {
+   iic->tx_data = data;  // tx_data에 데이터 저장
+   iic->CMD = WR_CM;      // WR_CM 명령 전송
+   iic->CMD = IDLE_CMD;   // IDLE 상태로 복귀
+   while (!(iic->SR & (1 << 2)));  // 전송 완료될 때까지 대기
+}
+
+void stop_transmission(IIC_typedef * iic) {
+   iic->CMD = STOP_CMD;   // STOP 명령
+   iic->CMD = IDLE_CMD;   // IDLE 상태로 복귀
+   while (!(iic->SR & (1 << 2)));  // 전송 완료될 때까지 대기
+}

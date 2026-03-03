@@ -1,0 +1,20 @@
+/*
+ * upCounter.c
+ *
+ *  Created on: 2025. 11. 5.
+ *      Author: kccistc
+ */
+
+
+int counter = 0;
+
+void initUpcounter()
+{
+	FND_Init();
+}
+
+void runUpCounter()
+{
+	FND_SetNumber(counter);
+}
+

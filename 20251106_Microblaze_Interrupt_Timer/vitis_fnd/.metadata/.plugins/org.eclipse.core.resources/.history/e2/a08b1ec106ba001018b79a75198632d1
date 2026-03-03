@@ -1,0 +1,27 @@
+/*
+ * button.c
+ *
+ *  Created on: 2025. 11. 5.
+ *      Author: kccistc
+ */
+
+#include "button.h"
+
+hBtn btn;
+
+void BTN_Init(hBtn *pBtn, GPIO_TypeDef *gpio, int pinNum) {
+
+	uint8_t pin;
+
+	pBtn->gpio = gpio;
+	pBtn->pinNum = pinNum;
+	pin = gpio->CR;
+	pin |= (1 << pinNum);
+
+	//btn.gpio = GPIOC;
+}
+
+
+int Button_getState(){
+	int curState = GPIO_Read(gpio, pinNum)
+}

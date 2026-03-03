@@ -1,0 +1,35 @@
+/*
+ * Buzzer.c
+ *
+ *  Created on: Dec 24, 2025
+ *      Author: kccistc
+ */
+
+
+#include "Buzzer.h"
+
+TIM_HandleTypeDef *hBuzzerTim;
+uint32_t buzzerChannel;
+
+void Buzzer_init(TIM_HandleTypeDef *hTim, uint32_t channel){
+	hBuzzerTim = hTim;
+	buzzerChannel = channel;
+}
+
+
+void Buzzer_makeSound(int herz){
+
+	uint8_t arrValue = (uint8_t)(1000000/herz);
+
+	__HAL_TIM_SET_AUTORELOAD(hBuzzerTim,arrValue-1); // change frequency duty ration (ARR register)
+	__HAL_TIM_SET_COMPARE(hBuzzerTim, buzzerChannel, (arrValue/2-1)); // change duty ratio (CCR register)
+}
+
+void Buzzer_startSound(){
+	HAL_TIM_PWM_Start(hBuzzerTim, buzzerChannel);
+}
+
+void Buzzer_stopSound(){
+	HAL_TIM_PWM_Stop(hBuzzerTim, buzzerChannel);
+}
+[출처] STM32 PWM (Buzzer & Motor)|작성자 asdfqwer155

@@ -1,0 +1,3 @@
+../Core/ap/apMain.c:20:6:apMain_Init	1
+../Core/ap/apMain.c:28:6:SeoulWatch_DispMode	3
+../Core/ap/apMain.c:40:6:apMain	8

@@ -1,0 +1,114 @@
+/*
+ * ap.c
+ *
+ *  Created on: 2025. 11. 4.
+ *      Author: kccistc
+ */
+
+#include "ap.h"
+#include "sleep.h"
+#include "xintc.h"
+#include "xil_exception.h"
+#include "../driver/btn/button.h"
+#include "../driver/common/millis.h"
+#include "../device/timer/timer.h"
+
+hButton upBtn;
+hLed powerLed;
+
+void intc_init();
+void TIMER_IntrInit();
+void ISR();
+void millisCounter();
+
+XIntc intc;
+
+
+void ap_main()
+{
+
+   initPowerInd();
+   initUpcounter();
+
+   //LED_Init(&powerLed, LED_GPIO, LED_0);
+   Millis_Init(TMR1);
+   intc_init();
+   TIMER_IntrInit();
+
+//   Button_Init(&upBtn, GPIOC, GPIO_PIN_0);
+//   LED_Init(&led0, GPIOB, LED_0);
+
+   uint32_t prevTime = 0;
+   uint32_t curTime;
+
+   while(1)
+   {
+//      curTime = millis();
+//      if (curTime - prevTime > 500){
+//         prevTime = curTime;
+//         LED_Toggle(&powerLed);
+//      }
+      dispPowerInd();
+//      runUpCounter();
+      exeUpCounter();
+//      if (Button_getState(&upBtn) == ACT_RELEASED){
+//         LED_Toggle(&led0);
+//      }
+
+      //ISR();
+   }
+}
+
+
+/// timer interrput controller setting
+void intc_init()
+{
+///// hw setting
+   int status = XIntc_Initialize(&intc, XPAR_INTC_0_DEVICE_ID);
+   if(status == XST_SUCCESS){
+	   xil_printf("INTC Init Successful\n");
+   } else{
+	   xil_printf("INTC Init fail\n");
+   }
+   status = XIntc_SelfTest(&intc);
+   if(status == XST_SUCCESS){
+	   xil_printf("INTC SelfTest Successful\n");
+   } else{
+	   xil_printf("INTC SelfTest fail\n");
+   }
+
+   ////////////////////////////////////////////////
+   // Initialize and Enable Exception handler // intr setting
+   Xil_ExceptionInit();
+   Xil_ExceptionRegisterHandler(XIL_EXCEPTION_ID_INT, (Xil_ExceptionHandler)XIntc_InterruptHandler, &intc);
+   Xil_ExceptionEnable();
+
+   // fuction pointer connect
+   XIntc_Connect(&intc, XPAR_INTC_0_TIMER_0_VEC_ID, (XInterruptHandler)ISR, 0);
+   XIntc_Enable(&intc, XPAR_INTC_0_TIMER_0_VEC_ID);
+
+   // enable global interrupt
+   XIntc_Start(&intc, XIN_REAL_MODE);
+
+}
+
+void TIMER_IntrInit()
+{
+	TMR_SetPSC(TMR0, 100);
+	TMR_SetARR(TMR0, 1000);
+	TMR_Start(TMR0);
+	TMR_INTR_Start(TMR0);
+}
+
+void ISR() // Interrupt Service Routine
+{
+   //millisCounter();
+   FND_DispNumber();
+}
+
+//void millisCounter()
+//{
+//   incMillis();
+//   usleep(100);
+//}
+

@@ -1,0 +1,15 @@
+/*
+ * upCounter.h
+ *
+ *  Created on: 2025. 11. 5.
+ *      Author: kccistc
+ */
+
+#ifndef SRC_AP_UPCOUNTER_UPCOUNTER_H_
+#define SRC_AP_UPCOUNTER_UPCOUNTER_H_
+
+void initUpCounter();
+void runUpCounter();
+void clearUpCounter();
+
+#endif /* SRC_AP_UPCOUNTER_UPCOUNTER_H_ */

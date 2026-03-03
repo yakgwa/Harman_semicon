@@ -1,0 +1,25 @@
+/*
+ * fnd.h
+ *
+ *  Created on: 2025. 11. 4.
+ *      Author: kccistc
+ */
+
+#ifndef SRC_DRIVER_FND_FND_H_
+#define SRC_DRIVER_FND_FND_H_
+
+#include "../../device/gpio/gpio.h"
+
+typedef struct {
+	GPIO_TypeDef *gpio_seg;
+	GPIO_TypeDef *gpio_com;
+	int digit_1;	// gpio pin 번호 => 자리수
+	int digit_10;
+	int digit_100;
+	int digit_1000;
+} hFnd;
+
+void FND_Init();
+void FND_DispNumber(int number);
+
+#endif /* SRC_DRIVER_FND_FND_H_ */
