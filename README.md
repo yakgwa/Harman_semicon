@@ -7,8 +7,6 @@
 
 </div> 
 
-<div align="left">
-
 - 사용 언어 : Verilog, VHDL, C, SystemVerilog, UVM
 - 프로젝트 수행 경험
   - Python을 사용한 감정 인식 기반 맞춤형 음악 추천 시스템 
