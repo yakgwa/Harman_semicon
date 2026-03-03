@@ -1,2 +1,32 @@
-# Harman_semicon
-Harman_semicon
+## Harman Semiconductor Academy
+
+- 사용 언어 / 기술**: Verilog, VHDL, C/C++
+- 프로젝트 수행 경험
+  - C언어를 사용한 나만의 ATM기 
+    - 역할 : C언어 기반 처리 알고리즘 및 보안 요소 구현
+    - 결과 : 지폐의 길이를 통한 입력 처리 및 비밀번호 입력 시 Arduino Board에서 처리하는 알고리즘 구현
+  - Python을 사용한 AI 음악가 
+    - 역할 : 데이터 수집, 전처리 및 모델 설계
+    - 결과 : MIDI 형식의 음악 Dataset 수집하고 이를 모델 입력 형식으로 변환하여 데이터 패턴을 고려한 입출력 시퀀스 및 시퀀스 모델 구성
+  - Verilog를 사용한 UART Logic Controller
+    - 역할 : DHT11(온습도계) Driver 설계 및 Simulation
+    - 결과 : Button Debouncer를 이용한 Button, ComportMaster를 이용한 UART 통신으로 온습도 Data FND로 출력 및 Simulation으로 동작 확인
+  - SystemVerilog를 사용한 RISCV APB Peripheral
+    - 역할 : APB Interface Design 및 Peripheral Connect
+    - 결과 : APB Interface의 Register를 설정 및 연결하고 C Complier를 통해 합성 후, ComportMaster를 통한 동작 확인
+  - SystemVerilog를 사용한 SPI / I2C Master to Slave Controller
+    - 역할 : VITIS를 이용한 SPI, I2C Master, Slave 구현
+    - 결과 : VITIS를 이용한 SPI, I2C Master Module, Slave Module을 구현하고 Master로 신호가 들어왔을 때 Slave에서 FND, LED로 출력함으로써 동작 확인 및 Simulation으로 동작 확인
+  - SystemVerilog를 사용한 Flag Game
+    - 역할 : Color, Region Detector 설계 및 출력 텍스트 구현
+    - 결과 : 정확한 Color, Region Detect 구현을 위한 Image Processing Filter 설계하여 Module로 입력 신호가 들어왔을 때 VGA 모니터에 동작에 맞는 텍스트 출력
+  - SystemVerilog를 사용한 무인 드론 방공망 System
+    - 역할 : VGA System Design, VGA Debugging, UI 제작
+    - 결과 : Camera 상으로 Red 객체가 들어왔을 때 좌표 떨림 밑 박스가 쪼개지는 현상없이 SPI를 통해 객체의 중심 좌표가 제대로 출력 및 HDMI를 통한 출력 확인
+
+- 프로젝트 언어 사용 경험
+  - C : 회피하는 RC카 시스템 설계
+  - Python : 감정 인식 기반 맞춤형 음악 추천 시스템 설계
+  - Verilog : FND Controller, UART, StopWatch, SR04, DHT11 설계
+  - Systemverilog : UART, RISCV SingleCycle, RISCV MultiCycle, APB, AXI, SPI, I2C, VGA Controller 설계
+  - UVM : UVM 구조를 이용해 UART 검증, VCS Tool을 이용하여 SPI, I2C Protocol UVM 검증
